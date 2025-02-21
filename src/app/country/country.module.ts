@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RouterLink } from '@angular/router';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
+    MatPaginatorModule,
     RouterLink,
   ],
   providers: [
