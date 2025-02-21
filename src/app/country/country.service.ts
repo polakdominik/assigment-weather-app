@@ -13,7 +13,7 @@ export class CountryService {
       error: boolean,
       msg: string,
       data: Country[]
-    }>('https://countriesnow.space/api/v0.1/countries')
+    }>('https://countriesnow.space/api/v0.1/countries') // TODO: move API URL to config
       .pipe(
         map(res => res.data),
         catchError(err => {

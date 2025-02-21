@@ -1,3 +1,15 @@
 <ng-container *ngIf="params$ | async as params">
-  <p>detail {{ params['id'] }} works!</p>
+  <h1>Weather detail {{ params['id'] }} </h1>
+  <div *ngIf="weatherData$ | async as weatherData; else loading">
+    <ul>
+      <li>Temperature: {{ weatherData.main.temp }}</li>
+      <li>Humidity: {{ weatherData.main.humidity }}</li>
+      <li>Pressure: {{ weatherData.main.pressure }}</li>
+      <li>Wind Speed: {{ weatherData.wind.speed }}</li>
+    </ul>
+  </div>
+
+  <ng-template #loading>
+    <mat-spinner/>
+  </ng-template>
 </ng-container>

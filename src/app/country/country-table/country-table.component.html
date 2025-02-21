@@ -28,7 +28,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let country">
-        <a [routerLink]="['/detail', country.iso2]">
+        <a [routerLink]="['/detail', country.country]">
           <button mat-raised-button color="primary">
             <mat-icon>visibility</mat-icon>
             View Details
