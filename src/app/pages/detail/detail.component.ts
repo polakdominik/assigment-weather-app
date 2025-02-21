@@ -59,18 +59,36 @@ export class DetailComponent implements OnInit {
   params$: ActivatedRoute['params'];
   weatherData$ = of<WeatherResponse|null>(null);
 
+  units = [
+    { value: 'metric', label: 'Metric' },
+    { value: 'imperial', label: 'Imperial' }
+  ];
+
+  selectedUnit = 'metric';
+
   constructor(route: ActivatedRoute,  private http: HttpClient) {
     this.params$ = route.params;
   }
 
-  ngOnInit() {
+  fetchWeatherData() {
     this.weatherData$ = this.params$
       .pipe(
         // TODO: move APPID to config and move the API call to service
-        concatMap(params => this.http.get<WeatherResponse>(`https://api.openweathermap.org/data/2.5/weather?q=${params['id']}&APPID=794ee95e63c5a32aaf88cd813fa2e425`)),
+        concatMap(params => this.http.get<WeatherResponse>(
+          `https://api.openweathermap.org/data/2.5/weather?q=${params['id']}&units=${this.selectedUnit}&APPID=794ee95e63c5a32aaf88cd813fa2e425`
+          )
+        ),
         // TODO: remove this log
         tap(result => console.log(result))
       );
+  }
+
+  ngOnInit() {
+    this.fetchWeatherData();
+  }
+
+  onUnitChange() {
+    this.fetchWeatherData();
   }
 
 }

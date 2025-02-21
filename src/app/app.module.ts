@@ -8,6 +8,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { CountryModule } from './country/country.module';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { DetailComponent } from './pages/detail/detail.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DetailComponent } from './pages/detail/detail.component';
     AppRoutingModule,
     CountryModule,
     MatProgressSpinner,
+    MatSelectModule,
   ],
   providers: [
     provideAnimationsAsync(),

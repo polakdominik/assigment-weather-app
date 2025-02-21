@@ -1,5 +1,10 @@
 <ng-container *ngIf="params$ | async as params">
   <h1>Weather detail {{ params['id'] }} </h1>
+  <mat-select [(value)]="selectedUnit" (selectionChange)="onUnitChange()">
+    <mat-option *ngFor="let unit of units" [value]="unit.value">
+      {{ unit.label }}
+    </mat-option>
+  </mat-select>
   <div *ngIf="weatherData$ | async as weatherData; else loading">
     <ul>
       <li>Temperature: {{ weatherData.main.temp }}</li>
