@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../country/country.service';
+import { of } from 'rxjs';
+import { Country } from '../../country/country.model';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +11,12 @@ import { CountryService } from '../../country/country.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private countryService: CountryService) {
-  }
+  countries$ = of<Country[]>([]);
 
-  ngOnInit() {
-    this.countryService.getCountries().subscribe(data => console.log(data));
+  constructor(private countryService: CountryService) {}
+
+  ngOnInit(): void {
+    this.countries$ = this.countryService.getCountries();
   }
 
 }

@@ -1,0 +1,31 @@
+<div class="mat-table-container">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="iso2">
+      <th mat-header-cell *matHeaderCellDef> ISO2 </th>
+      <td mat-cell *matCellDef="let country"> {{ country.iso2 }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="iso3">
+      <th mat-header-cell *matHeaderCellDef> ISO3 </th>
+      <td mat-cell *matCellDef="let country"> {{ country.iso3 }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let country"> {{ country.country }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cities">
+      <th mat-header-cell *matHeaderCellDef> Cities </th>
+      <td mat-cell *matCellDef="let country">
+        <ul>
+          <li *ngFor="let city of country.cities | slice:0:10">{{ city }}</li>
+        </ul>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

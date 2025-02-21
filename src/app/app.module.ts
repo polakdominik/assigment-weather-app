@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatButtonModule } from '@angular/material/button';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CountryModule } from './country/country.module';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CountryModule } from './country/country.module';
     AppRoutingModule,
     MatButtonModule,
     CountryModule,
+    MatProgressSpinner,
   ],
   providers: [
     provideAnimationsAsync(),
