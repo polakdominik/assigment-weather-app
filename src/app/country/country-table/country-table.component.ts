@@ -11,5 +11,5 @@ export class CountryTableComponent {
   @Input()
   dataSource: Country[] = [];
 
-  displayedColumns = ['iso2', 'iso3', 'country', 'cities'];
+  displayedColumns = ['iso2', 'iso3', 'country', 'cities', 'actions'];
 }
